@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS dns_cache ( query_hash TEXT PRIMARY KEY, response TEXT NOT NULL, timestamp INTEGER NOT NULL ); CREATE INDEX IF NOT EXISTS idx_timestamp ON dns_cache(timestamp);
