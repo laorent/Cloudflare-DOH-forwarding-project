@@ -1,40 +1,146 @@
-# Cloudflare-s-D1-database-DOH-forwarding-project
+# 🚀 Cloudflare D1 Database DoH Forwarding Project 🚀
 
-Disclaimer
+## ⚠ Disclaimer ⚠
 
-This project is an open source project that aims to build a DNS over HTTPS (DoH) forwarding service using Cloudflare's Worker functionality.
-The purpose of this project is to promote network privacy and security, and provide users with more secure and privacy-protected DNS resolution services. However, users of this project are subject to the following disclaimers:
+🔹 **This project is an open-source initiative that leverages Cloudflare's Worker functionality to build a DNS over HTTPS (DoH) forwarding service.**
 
-1.This project is for technical research and personal use only, and shall not be used for any purpose that violates laws and regulations or infringes on the rights and interests of others.
+🔹 **The goal is to enhance network privacy and security, providing users with more secure and privacy-protected DNS resolution services.**
 
-2.This project uses Cloudflare's Worker functionality as infrastructure, but is not officially maintained or endorsed by Cloudflare, and Cloudflare is not responsible for any damages caused by this project.
+📌 However, users must acknowledge the following disclaimers:
 
-3.the authors and contributors to this project are not responsible for any losses or problems resulting from the use of this project, including but not limited to data loss, service interruptions, network security issues, etc.
+1️⃣ **This project is intended for technical research and personal use only.** It must not be used for any activities that violate laws, regulations, or infringe on the rights of others.
 
-4.Any individual or organization should comply with the Internet-related laws and regulations when using this project and take full responsibility for their own actions.
+2️⃣ **This project uses Cloudflare's Worker functionality as infrastructure but is NOT officially maintained or endorsed by Cloudflare.** Cloudflare bears no responsibility for any damages resulting from its use.
 
-5.If any person or organization uses this project to harm Cloudflare's interests or violates its terms of service, it has nothing to do with the authors and contributors of this project, and all legal responsibilities shall be borne by the perpetrators themselves.
+3️⃣ **The authors and contributors disclaim liability for any losses or issues arising from this project,** including but not limited to:
+   - Data loss
+   - Service interruptions
+   - Network security vulnerabilities
 
-Users are requested to read and understand the above disclaimer carefully before using this program, and if there is no objection, they are deemed to agree to and comply with all the provisions of this statement.
+4️⃣ **Users must comply with all applicable internet-related laws and regulations** and take full responsibility for their actions.
 
-This project supports custom domain + /dns-query path access, uses the built-in crypto.subtle for encryption, utilizes a D1 SQL database for caching, and supports both GET and POST request methods. It allows configuration of upstream DoH servers via environment variables, is fully compatible with mainstream browsers, includes error handling and exception capture, and supports cache expiration control.
+5️⃣ **If any individual or organization misuses this project to harm Cloudflare's interests or violate its terms of service,** the authors and contributors bear no responsibility. All legal liabilities rest solely on the perpetrators.
 
-To use this Worker, you need to:
+📢 **Users should carefully read and understand this disclaimer before using the project. By proceeding, you agree to abide by all its provisions.**
 
-Create a new Worker in Cloudflare Workers.
+---
 
-Create a D1 database and run the schema to create the table.
+## 🌐 Project Features
 
-Configure environment variables in the Worker settings:
+✅ **Supports custom domain + `/dns-query` path access**  
+✅ **Uses built-in `crypto.subtle` for encryption**  
+✅ **Utilizes a D1 SQL database for caching**  
+✅ **Supports both GET and POST request methods**  
+✅ **Allows upstream DoH server configuration via environment variables**  
+✅ **Fully compatible with mainstream browsers**  
+✅ **Includes error handling and exception capture**  
+✅ **Supports cache expiration control**
 
-DB: D1 database binding.
+---
 
-UPSTREAM_DOH: (Optional) Custom upstream DoH server address.
+## 🔧 How to Deploy
 
-Before using it, you need to create the table in the D1 database:
+### 1️⃣ **Create a new Worker in Cloudflare Workers**
+
+### 2️⃣ **Create a D1 database and initialize the schema**
+
+### 3️⃣ **Configure environment variables in Worker settings**
+
+```txt
+DB: D1 database binding
+UPSTREAM_DOH: (Optional) Custom upstream DoH server address
+```
+
+---
+
+## 🛠 D1 Database Table Setup
+
+Before using the project, initialize the database with the following SQL commands:
+
+```sql
 CREATE TABLE IF NOT EXISTS dns_cache (
-  query_hash TEXT PRIMARY KEY,
-  response TEXT NOT NULL,
-  timestamp INTEGER NOT NULL
+    query_hash TEXT PRIMARY KEY,
+    response TEXT NOT NULL,
+    timestamp INTEGER NOT NULL
 );
+
 CREATE INDEX IF NOT EXISTS idx_timestamp ON dns_cache(timestamp);
+```
+
+---
+
+✅ **Now you're ready to deploy and use your own Cloudflare-powered DoH forwarding service!** 🚀
+
+# 🚀 Cloudflare D1 Database DoH Forwarding Project 🚀
+
+## ⚠ Disclaimer ⚠
+
+🔹 **This project is an open-source initiative that leverages Cloudflare's Worker functionality to build a DNS over HTTPS (DoH) forwarding service.**
+
+🔹 **The goal is to enhance network privacy and security, providing users with more secure and privacy-protected DNS resolution services.**
+
+📌 However, users must acknowledge the following disclaimers:
+
+1️⃣ **This project is intended for technical research and personal use only.** It must not be used for any activities that violate laws, regulations, or infringe on the rights of others.
+
+2️⃣ **This project uses Cloudflare's Worker functionality as infrastructure but is NOT officially maintained or endorsed by Cloudflare.** Cloudflare bears no responsibility for any damages resulting from its use.
+
+3️⃣ **The authors and contributors disclaim liability for any losses or issues arising from this project,** including but not limited to:
+   - Data loss
+   - Service interruptions
+   - Network security vulnerabilities
+
+4️⃣ **Users must comply with all applicable internet-related laws and regulations** and take full responsibility for their actions.
+
+5️⃣ **If any individual or organization misuses this project to harm Cloudflare's interests or violate its terms of service,** the authors and contributors bear no responsibility. All legal liabilities rest solely on the perpetrators.
+
+📢 **Users should carefully read and understand this disclaimer before using the project. By proceeding, you agree to abide by all its provisions.**
+
+---
+
+## 🌐 Project Features
+
+✅ **Supports custom domain + `/dns-query` path access**  
+✅ **Uses built-in `crypto.subtle` for encryption**  
+✅ **Utilizes a D1 SQL database for caching**  
+✅ **Supports both GET and POST request methods**  
+✅ **Allows upstream DoH server configuration via environment variables**  
+✅ **Fully compatible with mainstream browsers**  
+✅ **Includes error handling and exception capture**  
+✅ **Supports cache expiration control**
+
+---
+
+## 🔧 How to Deploy
+
+### 1️⃣ **Create a new Worker in Cloudflare Workers**
+
+### 2️⃣ **Create a D1 database and initialize the schema**
+
+### 3️⃣ **Configure environment variables in Worker settings**
+
+```txt
+DB: D1 database binding
+UPSTREAM_DOH: (Optional) Custom upstream DoH server address
+```
+
+---
+
+## 🛠 D1 Database Table Setup
+
+Before using the project, initialize the database with the following SQL commands:
+
+```sql
+CREATE TABLE IF NOT EXISTS dns_cache (
+    query_hash TEXT PRIMARY KEY,
+    response TEXT NOT NULL,
+    timestamp INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_timestamp ON dns_cache(timestamp);
+```
+
+---
+
+✅ **Now you're ready to deploy and use your own Cloudflare-powered DoH forwarding service!** 🚀
+
