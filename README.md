@@ -23,6 +23,7 @@
 
 📢 **Users should carefully read and understand this disclaimer before using the project. By proceeding, you agree to abide by all its provisions.**
 
+📌 Remember to ⭐ Star the project on GitHub if you find it useful!
 ---
 
 ## 🌐 Project Features
